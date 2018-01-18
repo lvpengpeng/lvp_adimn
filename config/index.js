@@ -10,8 +10,17 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
-
+    proxyTable:{
+      '/api/': {
+            // 浏览器输入http://localhost:3000/seller,就会返回mock里的db里的数据。
+            // target是代理的网址，即项目打开的网址
+            target: 'http://localhost:8080',
+            changeOrigin: true,
+            pathRewrite: {
+                '^/api/': ''
+            }
+        }
+      },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
