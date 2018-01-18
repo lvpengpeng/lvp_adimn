@@ -13,8 +13,7 @@ module.exports = {
     proxyTable:{
       '/api/': {
             // 浏览器输入http://localhost:3000/seller,就会返回mock里的db里的数据。
-            // target是代理的网址，即项目打开的网址
-            target: 'http://localhost:8080',
+            target: 'http://localhost:3000',
             changeOrigin: true,
             pathRewrite: {
                 '^/api/': ''

@@ -6,8 +6,17 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'App'
+  name: 'App',
+  created() {
+    axios.get('/api/goods').then(function (response) {
+        console.log(response);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+  }
 }
 </script>
 
@@ -21,3 +30,5 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+
