@@ -2,6 +2,9 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <div class="box">
+      <div class="con">2</div>
+    </div>
     <ul>
       <li>
         <a
@@ -95,7 +98,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 h1, h2 {
   font-weight: normal;
 }
@@ -109,5 +112,15 @@ li {
 }
 a {
   color: #42b983;
+}
+.box{
+  width: 100px;
+  height: 100px;
+  background: red;
+  .con{
+ width: 30px;
+  height: 30px;
+  background: blue;
+  }
 }
 </style>
