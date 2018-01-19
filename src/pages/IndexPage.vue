@@ -23,7 +23,19 @@
             </ul>
         </div>
       </div>
-      <div class="index-right"></div>
+      <div class="index-right">
+        <div class="banner"></div>
+        <div class="index-board-list">
+          <div class="index-board-box">
+            <div class="banner-inner-left"></div>
+            <div class="banner-inner-right">
+              <h2></h2>
+              <p></p>
+              <div class="button"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -238,6 +250,36 @@
     width: 900px;
     height: 100%;
     background: #ddd;
+    .banner{
+      width: 900px;
+      height: 420px;
+      background: #fff;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .index-board-list{
+      width: 100%;
+      height: 348px;
+      background: #b2ffdc;
+      .index-board-box{
+        .banner-inner-left{
+          width: 420px;
+          height: 150px;
+          background: #fff;
+        }
+        .banner-inner-right{
+          h2{
+
+          }
+          p{
+
+          }
+          .button{
+
+          }
+        }
+      }
+    }
   }
 }
   a{

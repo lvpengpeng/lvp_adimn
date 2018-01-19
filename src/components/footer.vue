@@ -1,6 +1,6 @@
 <template>
   <div class="fotter">
-    © 2018 lvp
+    © 2018 1 19 lvp
   </div>
 </template>
 
