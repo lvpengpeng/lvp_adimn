@@ -14,12 +14,21 @@
             <div v-if="!product.last" class="hr"></div>
           </template>
         </div>
+        <div class="index-wrap-bloack news">
+          <h2>最新消息</h2>
+            <ul>
+              <li v-for="news in newsList">
+                <a :href="news.url" class="new-text">{{news.title}}</a>
+              </li>
+            </ul>
+        </div>
       </div>
       <div class="index-right"></div>
     </div>
 </template>
 
 <script>
+  import axios from "axios"
     export default {
       data(){
         return {
@@ -77,6 +86,47 @@
             }
           ],
           newsList: [],
+          "login": {
+            "username": "yudongdong",
+            "userId": 123123
+          },
+          "getPrice": {
+            "amount": 678
+          },
+          "createOrder": {
+            "orderId": "6djk979"
+          },
+          "getOrderList": {
+            "list": [
+              {
+                "orderId": "ddj123",
+                "product": "数据统计",
+                "version": "高级版",
+                "period": "1年",
+                "buyNum": 2,
+                "date": "2016-10-10",
+                "amount": "500元"
+              },
+              {
+                "orderId": "yuj583",
+                "product": "流量分析",
+                "version": "户外版",
+                "period": "3个月",
+                "buyNum": 1,
+                "date": "2016-5-2",
+                "amount": "2200元"
+              },
+              {
+                "orderId": "pmd201",
+                "product": "广告发布",
+                "version": "商铺版",
+                "period": "3年",
+                "buyNum": 12,
+                "date": "2016-8-3",
+                "amount": "7890元"
+              }
+            ]
+          },
           productList: {
             pc: {
               title: 'PC产品',
@@ -125,6 +175,14 @@
             }
           }
         }
+      },
+      created: function () {
+        axios.get('/api/getNewsList')
+          .then((res) => {
+            this.newsList = res.data
+          }, (err) => {
+            console.log(err)
+          })
       }
     }
 </script>
@@ -139,10 +197,10 @@
     width: 300px;
     height: 100%;
     background: #ccc;
-    padding-top: 15px;
     .index-wrap-bloack{
       width: 270px;
       margin: 0 auto;
+      margin-top: 15px;
       background: #fff;
       h2{
         background: #4fc08d;
@@ -162,6 +220,17 @@
       .hot-tag{
         background: red;
         color: orange;
+      }
+    }
+    .news{
+      margin-top: 20px;
+      min-height: 380px;
+      .new-text{
+        display: block;
+        width: 200px;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
       }
     }
   }

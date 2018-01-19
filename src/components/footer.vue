@@ -16,7 +16,7 @@
     height: 90px;
     line-height: 90px;
     text-align: center;
-    background: #ccc;
+    background: #f0f2f5;;
   }
 </style>
 
