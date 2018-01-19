@@ -2,7 +2,11 @@
   <div id="app">
     <app-header></app-header>
     <!--<img src="./assets/logo.png">-->
-    <router-view/>
+    <div class="container">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </div>
     <app-footer></app-footer>
   </div>
 </template>
@@ -18,7 +22,7 @@ export default {
     appFooter
   },
   created() {
-    axios.get('/api/goods').then(function (response) {
+    axios.get('/api/getNewsList').then(function (response) {
         console.log(response);
     })
     .catch(function (error) {
@@ -49,6 +53,12 @@ export default {
   .pr{position: relative;}
   .pa{position: absolute;}
   .pf{position: fixed;}
+
+  .container{
+    width: 1200px;
+    height: 768px;
+    margin: 0 auto;
+  }
 </style>
 
 
