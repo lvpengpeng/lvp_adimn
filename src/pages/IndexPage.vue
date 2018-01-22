@@ -24,7 +24,8 @@
         </div>
       </div>
       <div class="index-right">
-        <div class="banner">轮播图</div>
+        <!--<div class="banner">轮播图</div>-->
+        <slideShow  class="banner" :slides="slides"></slideShow>
         <div class="index-board-list clearfix">
           <div class="index-board-box" v-for="(board ,index) in boardList" :class="[{'line-last' : index % 2 !== 0}, 'banner-inner-'+board.id]">
             <div class="banner-inner-left" ></div>
@@ -41,6 +42,7 @@
 
 <script>
   import axios from "axios"
+  import slideShow from '../components/slideShow.vue'
     export default {
       data(){
         return {
@@ -195,6 +197,9 @@
           }, (err) => {
             console.log(err)
           })
+      },
+      components:{
+        slideShow
       }
     }
 </script>
