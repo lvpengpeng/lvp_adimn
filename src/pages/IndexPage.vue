@@ -24,14 +24,14 @@
         </div>
       </div>
       <div class="index-right">
-        <div class="banner"></div>
-        <div class="index-board-list">
-          <div class="index-board-box">
-            <div class="banner-inner-left"></div>
+        <div class="banner">轮播图</div>
+        <div class="index-board-list clearfix">
+          <div class="index-board-box" v-for="(board ,index) in boardList" :class="[{'line-last' : index % 2 !== 0}, 'banner-inner-'+board.id]">
+            <div class="banner-inner-left" ></div>
             <div class="banner-inner-right">
-              <h2></h2>
-              <p></p>
-              <div class="button"></div>
+              <h2>{{board.title}}</h2>
+              <p>{{board.description}}</p>
+              <div class="button">立即购买</div>
             </div>
           </div>
         </div>
@@ -201,18 +201,17 @@
 
 <style scoped lang="scss">
 .index-wrap{
-  width: 100%;
+  width: 1200px;
   height: 100%;
+  margin: 15px auto 0;
   display: flex;
   justify-content: space-between;
   .index-left{
     width: 300px;
     height: 100%;
-    background: #ccc;
     .index-wrap-bloack{
       width: 270px;
       margin: 0 auto;
-      margin-top: 15px;
       background: #fff;
       h2{
         background: #4fc08d;
@@ -249,10 +248,10 @@
   .index-right{
     width: 900px;
     height: 100%;
-    background: #ddd;
+    overflow: hidden;
     .banner{
       width: 900px;
-      height: 420px;
+      height: 406px;
       background: #fff;
       border: 1px solid #ccc;
       box-sizing: border-box;
@@ -260,22 +259,54 @@
     .index-board-list{
       width: 100%;
       height: 348px;
-      background: #b2ffdc;
+      overflow: hidden;
+      margin-top: 10px;
+      .banner-inner-car .banner-inner-left{
+        background: url("../assets/images/1.png");
+        background-size: cover;
+      }
+      .banner-inner-loud .banner-inner-left{
+        background: url("../assets/images/2.png");
+        background-size: cover;
+      }
+      .banner-inner-earth .banner-inner-left{
+        background: url("../assets/images/3.png");
+        background-size: cover;
+      }
+      .banner-inner-hill .banner-inner-left{
+        background: url("../assets/images/4.png");
+        background-size: cover;
+      }
+      .line-last{
+        margin-left: 20px;
+      }
       .index-board-box{
+        display: flex;
+        width: 440px;
+        height: 140px;
+        float: left;
+        margin-top: 8px;
+        background: #fff;
         .banner-inner-left{
-          width: 420px;
-          height: 150px;
-          background: #fff;
+          margin: 10px;
+          width: 120px;
+          height: 120px;
         }
         .banner-inner-right{
           h2{
-
+            margin-top: 10px;
+            font-weight: bold;
           }
           p{
-
+            margin-top: 20px;
           }
           .button{
-
+            width: 96px;
+            height: 34px;
+            background: rgba(73, 165, 20, 0.54);
+            margin-top: 20px;
+            line-height: 34px;
+            text-align: center;
           }
         }
       }

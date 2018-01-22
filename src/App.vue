@@ -55,9 +55,11 @@ export default {
   .pf{position: fixed;}
 
   .container{
-    width: 1200px;
+    width: 100%;
     height: 768px;
     margin: 0 auto;
+    background: #ddd;
+    overflow: hidden;
   }
 </style>
 
