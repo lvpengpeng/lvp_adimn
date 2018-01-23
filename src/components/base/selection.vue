@@ -1,19 +1,43 @@
 <template>
     <div class="myselect-wrap">
-      <div class="select-wrap-top">
-        <span>11233</span>
+      <div class="select-wrap-top" @click="toggleSelect">
+        <span>{{this.selections[newIndex].label}}</span>
         <div class="jt"></div>
       </div>
-      <!--<ul>-->
-        <!--<li></li>-->
-        <!--<li></li>-->
-        <!--<li></li>-->
-      <!--</ul>-->
+      <ul class="select-wrap-bottom" v-if="isShow">
+        <li v-for="(item ,index) in selections" :key="index" @click="selected(index)">{{ item.label }}</li>
+      </ul>
     </div>
 </template>
 
 <script>
-    export default {}
+    export default {
+      props:{
+        selections:{
+          type:Array,
+          default: [{
+            label: 'test',
+            value: 0
+          }]
+        }
+      },
+      data(){
+        return {
+          isShow:false,
+          newIndex:0
+        }
+      },
+      methods:{
+        toggleSelect(){
+          this.isShow=!this.isShow
+        },
+        selected(index){
+          this.newIndex=index;
+          this.isShow=false;
+          this.$emit('on-change', this.selections[this.nowIndex])
+        }
+      }
+    }
 </script>
 
 <style scoped lang="scss">
@@ -36,6 +60,20 @@
         width: 0;
         height: 0;
         margin: 0 auto;
+      }
+    }
+    .select-wrap-bottom{
+      width: 100px;
+      position: relative;
+      li{
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        background: #fff;
+        border: 1px solid #ccc;
+        &:hover{
+          background: #4fc08d;;
+        }
       }
     }
   }
