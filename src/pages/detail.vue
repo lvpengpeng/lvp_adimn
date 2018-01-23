@@ -63,6 +63,8 @@
     padding:10px 0;
     background: #ccc;
     margin:0 auto;
+    display: flex;
+    justify-content: space-between;
     .detail-wrap-left{
       width:200px;
       height:300px;
@@ -86,6 +88,10 @@
           color: #fff;
         }
       }
+    }
+    .detail-wrap-right{
+      width:980px;
+      background: #999;
     }
   }
 </style>
