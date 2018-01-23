@@ -10,7 +10,7 @@
         </div>
         <div class="flow-from-item">
           <div>产品类型：</div>
-          <div>+0-</div>
+          <my-select></my-select>
         </div>
         <div class="flow-from-item">
           <div>有效时间：</div>
@@ -54,9 +54,11 @@
 
 <script>
   import myCounter from '../../components/base/counter.vue'
+  import mySelect from "../../components/base/selection.vue"
     export default {
       components:{
-        myCounter
+        myCounter,
+        mySelect
       }
     }
 </script>
