@@ -18,11 +18,11 @@
         </div>
         <div class="flow-from-item">
           <div>产品版本：</div>
-          <div>+0-</div>
+          <my-edition :edition="versionList"></my-edition>
         </div>
         <div class="flow-from-item">
           <div>总价：</div>
-          <div>+0-</div>
+          <div>{{ price }}元</div>
         </div>
         <div class="pay-from">付款</div>
       </div>
@@ -55,15 +55,18 @@
 <script>
   import myCounter from '../../components/base/counter.vue'
   import mySelect from "../../components/base/selection.vue"
-  import myTimes from "../../components/base/times"
+  import myTimes from "../../components/base/times.vue"
+  import myEdition from "../../components/base/edition.vue"
     export default {
       components:{
         myCounter,
         mySelect,
-        myTimes
+        myTimes,
+        myEdition
       },
       data(){
         return {
+          price:23,
           versionList: [
             {
               label: '客户版',
@@ -137,6 +140,7 @@
         height: 30px;
         line-height:30px;
         margin-left: 20px;
+        margin-bottom: 10px;
          div:nth-child(1){
            width: 80px;
          }
